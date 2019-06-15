@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+		"target": "es2019",
+		"module": "commonjs",
+		"sourceMap": true,
+		"outDir": "dist",
+		"noImplicitAny": true,
+		"noUnusedParameters": false,
+		"noUnusedLocals": false,
+		"lib": [
+			"es2019"
+		],
+		"strict": true,
+		"baseUrl": "./src",
+        "declaration": true,
+        "stripInternal": true,
+        "strictNullChecks":true,
+        "strictPropertyInitialization":true,
+        "noFallthroughCasesInSwitch":true,
+        "emitBOM": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "noImplicitThis": true,
+        "alwaysStrict": true
+    },
+    "compileOnSave": true,
+	"include": [
+		"src/**/*.ts"
+	],
+    "exclude": [
+		"node_modules"
+	]
+}

@@ -1,0 +1,9 @@
+{
+    "name": "vscode-typescript-angularjs-plugin",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "postinstall": "cd packages/angularjs-language-service && yarn install && tsc && cd ../vscode-typescript-angularjs-plugin/ && yarn install && cd ../../test/workspace/big-project && yarn install && cd ../small-project && yarn install",
+        "watch": "tsc --watch -p packages/angularjs-language-service/tsconfig.json"
+    }
+}

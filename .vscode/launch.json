@@ -1,0 +1,41 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "extensionHost",
+			"request": "launch",
+			"name": "Launch Extension",
+			"runtimeExecutable": "${execPath}",
+			"sourceMaps": true,
+			"args": [
+				"--extensionDevelopmentPath=${workspaceRoot}/packages/vscode-typescript-angularjs-plugin",
+				"${workspaceRoot}/test/workspace/workspace.code-workspace"
+			],
+			"env": {
+				"TSS_DEBUG": "5859"
+			},
+		},
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Attach to Typescript",
+			"port": 5859,
+			"timeout": 20000,
+			"restart": true,
+			"sourceMaps": true,
+			"outFiles": [
+				"${workspaceRoot}/server/out/**/*.js"
+			]
+		}
+	],
+	"compounds": [
+		{
+			"name": "Launch Extension + Attach to Typescript",
+			"configurations": [
+				"Launch Extension",
+				"Attach to Typescript"
+			]
+		}
+	]
+}

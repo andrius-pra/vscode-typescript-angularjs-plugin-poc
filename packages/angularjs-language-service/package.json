@@ -1,0 +1,24 @@
+{
+    "name": "angularjs-language-service-poc",
+    "version": "0.0.1",
+    "description": "AngularJS language service POC",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "author": "Andrius",
+    "license": "MIT",
+    "categories": [],
+    "publisher": "andrius-pra",
+    "scripts": {
+        "prepublish": "tsc"
+    },
+    "files": [
+        "dist/**/*"
+    ],
+    "dependencies": {
+        "typescript": "^3.5.2",
+        "mock-require": "^3.0.3"
+    },
+    "devDependencies": {
+        "@types/mock-require": "^2.0.0"
+    }
+}

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "big-project"
+		},
+		{
+			"path": "small-project"
+		}
+	],
+	"settings": {
+		// it's necessary for completions in HTML files
+		"typescript-plugins.suggest.enabled": true,
+	}
+}
