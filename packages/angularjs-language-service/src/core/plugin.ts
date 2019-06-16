@@ -19,7 +19,8 @@ export function init({ typescript }: { typescript: typeof ts_module }) {
         logger!.info('getExternalFiles');
         let list: string[] | undefined;
         const host = projectHostMap.get(project);
-        if (host) {
+        const rootFiles = project.getRootFiles();
+        if (host && rootFiles && Array.from(rootFiles).length) {
             list = host.getExternalFiles();
         }
         return list;
@@ -35,8 +36,7 @@ export function init({ typescript }: { typescript: typeof ts_module }) {
             serviceHost.setSite(ls);
             projectHostMap.set(info.project, serviceHost);
             return new AngularJSPlugin(typescript, serviceHost, ls, logger, info.project, info.languageService).decorate();
-        }
-        catch (e) {
+        } catch (e) {
             throw e;
         }
     }
@@ -75,8 +75,8 @@ export class AngularJSPlugin {
             getTypeDefinitionAtPosition: (...args) => this.getTypeDefinitionAtPosition(...args),
             getDefinitionAtPosition: (...args) => this.getDefinitionAtPosition(...args),
             findRenameLocations: (...args) => this.findRenameLocations(...args),
-            organizeImports: (...args) => this.organizeImports(...args)
-        }
+            organizeImports: (...args) => this.organizeImports(...args),
+        };
 
         return new Proxy(this.originalLanguageService, {
             get: (target: any, property: PropertyKey) => {
@@ -103,7 +103,7 @@ export class AngularJSPlugin {
             isGlobalCompletion: false,
             isMemberCompletion: false,
             isNewIdentifierLocation: false,
-            entries: []
+            entries: [],
         };
 
         let result: ts.WithMetadata<ts.CompletionInfo> | undefined = emptyResult;
@@ -128,7 +128,7 @@ export class AngularJSPlugin {
         }
 
         const ours = this.languageService.getSemanticDiagnostics(fileName);
-        result.push(...ours)
+        result.push(...ours);
 
         return result;
     }
@@ -141,7 +141,7 @@ export class AngularJSPlugin {
         }
 
         const ours = this.languageService.getSyntacticDiagnostics(fileName);
-        result.push(...ours)
+        result.push(...ours);
 
         return result;
     }
@@ -181,8 +181,8 @@ export class AngularJSPlugin {
         } else {
             const result: ts_module.DefinitionInfoAndBoundSpan | undefined = {
                 definitions: [...ours.definitions, ...base.definitions],
-                textSpan: base.textSpan
-            }
+                textSpan: base.textSpan,
+            };
             return result;
         }
     }
@@ -196,7 +196,7 @@ export class AngularJSPlugin {
         if (this.isValidSourceFile(fileName)) {
             result = this.originalLanguageService.getQuickInfoAtPosition(fileName, position);
             if (result) {
-                return result
+                return result;
             }
         }
 

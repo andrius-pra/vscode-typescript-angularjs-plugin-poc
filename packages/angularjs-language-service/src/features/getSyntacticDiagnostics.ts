@@ -1,4 +1,4 @@
-import { Context } from "../types/context";
+import { Context } from '../types/context';
 
 export function getSyntacticDiagnostics(
     context: Context,
@@ -7,4 +7,3 @@ export function getSyntacticDiagnostics(
 
     return [];
 }
-

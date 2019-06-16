@@ -1,4 +1,4 @@
-import { TypeScriptServiceHost } from "./typescript-host";
+import { TypeScriptServiceHost } from './typescript-host';
 import { findReferences } from '../features/findReferences';
 import { getCompletionsAtPosition } from '../features/getCompletionsAtPosition';
 import { getCompletionEntryDetails } from '../features/getCompletionEntryDetails';

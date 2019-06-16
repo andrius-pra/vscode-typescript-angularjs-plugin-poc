@@ -12,7 +12,7 @@ import { HeroService } from '../hero.service';
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
 
-  /*@ngInject*/
+  /*@ngInject*/ 
   constructor(
     private $state: StateService,
     private heroService: HeroService

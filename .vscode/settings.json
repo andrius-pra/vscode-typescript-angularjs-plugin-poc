@@ -15,6 +15,5 @@
         "**/node_modules": true,
         "**/bower_components": true
     },
-    "typescript.preferences.quoteStyle": "single",
-    "tslint.configFile": "tslint.json"
+    "typescript.preferences.quoteStyle": "single"
 }

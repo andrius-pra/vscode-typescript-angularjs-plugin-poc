@@ -5,10 +5,15 @@
 		},
 		{
 			"path": "small-project"
+		},
+		{
+			"path": "non-angularjs-project"
 		}
 	],
 	"settings": {
 		// it's necessary for completions in HTML files
 		"typescript-plugins.suggest.enabled": true,
+		"typescript.suggest.completeFunctionCalls": true,
+		"typescript.tsdk": "big-project\\node_modules\\typescript\\lib",
 	}
 }
